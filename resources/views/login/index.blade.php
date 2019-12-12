@@ -7,7 +7,7 @@
 	<h1>Login</h1>
 
 	<form method="post" >
-		<!-- @csrf -->
+		<!-- @csrf  -->
 
 		<!-- {{csrf_field()}} -->
 

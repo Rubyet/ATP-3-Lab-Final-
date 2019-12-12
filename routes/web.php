@@ -46,6 +46,7 @@ Route::get('/Admin/delete/{id}', 'AdminController@destroy')->name('admin.delete'
 //blog
 
 Route::get('/blog', 'BlogController@index')->name('blog.index');
+Route::post('/blog', 'BlogController@store');
 
 
 //restaurent related

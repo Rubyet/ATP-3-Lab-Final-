@@ -21,7 +21,9 @@
 	@foreach($Blog as $blog)
 	<table border="1" align="center" >
 		<tr>
-			<td><h2>{{$User['$blog['id']])}}</h2></td>
+			<td><h2>
+				{{$User[ $blog['uid'] ]->username  }}
+			</h2></td>
 		</tr>
 		<tr>
 			<td><h4>{{$blog['post']}}</td>
@@ -29,12 +31,12 @@
 		<tr>
 			<td>
 				<h4>Comments:</h4>
-				<form>
+				
 				@foreach($Comment as $comment)	
 				<table  border="1">
 					<tr>
 						<td >
-							{{$User[ $comment['uid'] ]}}
+							{{$User[ $comment['uid'] ]->username}}
 						</td>
 					</tr>
 					<tr>
@@ -43,15 +45,16 @@
 						</td>
 					</tr>
 				</table>
+				<br>
 				@endforeach
 				<table>
 					<tr>
 						<td>
-							<input type="text" name="comment"> | <input type="submit" name="submit" value="Go">
+						
 						</td>
 					</tr>
 				</table>
-				</form>
+				
 			</td>
 		</tr>
 		

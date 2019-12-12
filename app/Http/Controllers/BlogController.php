@@ -19,8 +19,8 @@ class BlogController extends Controller
         $Blog = \App\blog::all();
         $Comment = \App\comment::all();
         $User = \App\admin::all();
-        echo($user);
-        //return view('blog.index')->with('Blog', $Blog)->with('Comment', $Comment)->with('User', $User);
+        //echo($user);
+        return view('blog.index')->with('Blog', $Blog)->with('Comment', $Comment)->with('User', $User);
     }
 
     /**
@@ -41,7 +41,18 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comment = new comment();
+        $comment->comment=$request->comment;
+        $comment->pid =$request->pid;
+        $comment->uid =$request->session()->get('id');
+
+        //echo("Error in comment sql");
+
+        //if($comment->save()){
+           // return redirect()->route('blog.index');
+        //}else{
+         //   echo("Error in comment sql");
+        //}
     }
 
     /**
