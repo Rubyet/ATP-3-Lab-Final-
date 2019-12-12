@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add Member</title>
+	<title>Register</title>
 </head>
 <body>
-	<h1>Add Member</h1>
-
-	<a href="{{route('admin.index')}}">Back</a> |
-	<a href="{{route('logout.index')}}">logout</a>
+	<h1>Register</h1>
 
 <br><br>
 
@@ -15,7 +12,7 @@
 	{{csrf_field()}}
 	<table border="0">
 		
-	<tr>
+		<tr>
 			<td>Username</td>
 			<td><input type="text" name="username" value="{{old('username')}}" required></td>
 		</tr>
@@ -47,9 +44,10 @@
 			<td>Email</td>
 			<td><input type="text" name="email" value="{{old('Email')}}" required></td>
 		</tr>
+		
 		<tr>
 			<td></td>
-			<td><input type="submit" name="submit" value="Save"></td>
+			<td><input type="submit" name="submit" value="Submit"></td>
 		</tr>
 	</table>
 </form>

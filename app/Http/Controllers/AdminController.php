@@ -33,9 +33,23 @@ class AdminController extends Controller
 
     public function reg()
     {
-        //return view('admin.reg');
+        return view('admin.reg');
     }
+    public function register(Request $request)
+    {
+        $Admin = new admin();
+        $Admin->username=$request->username;
+        $Admin->password =$request->password;
+        $Admin->type =$request->type;
+        $Admin->email =$request->email;
 
+        if($Admin->save()){
+            return redirect()->route('login.index');
+        }else{
+            return redirect()->route('admin.reg');
+        }
+    }
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -45,14 +59,13 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         $Admin = new admin();
-        $Admin->name =$request->name;
-        $Admin->contact=$request->contact;
         $Admin->username=$request->username;
         $Admin->password =$request->password;
         $Admin->type =$request->type;
+        $Admin->email =$request->email;
 
         if($Admin->save()){
-            return redirect()->route('admin.list');
+            return redirect()->route('admin.index');
         }else{
             return redirect()->route('admin.create');
         }
@@ -66,10 +79,15 @@ class AdminController extends Controller
      */
     public function show(admin $admin)
     {
-            $employee = \App\admin::all();
-            return view('admin.list')->with('employee', $employee);
+            $User = \App\admin::all();
+            return view('admin.list')->with('User', $User);
     }
 
+    public function details(admin $admin,$id)
+    {
+            $User = \App\admin::find($id);
+            return view('admin.details')->with('user', $User);
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -92,11 +110,10 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         $Admin = admin::find($id);
-		$Admin->name =$request->name;
-        $Admin->contact=$request->contact;
-        $Admin->username=$request->username;
+		$Admin->username=$request->username;
         $Admin->password =$request->password;
         $Admin->type =$request->type;
+        $Admin->email =$request->email;
         $Admin->save();
 		
     	return redirect()->route('admin.index');

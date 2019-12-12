@@ -25,11 +25,12 @@ Route::get('/logout', 'LogoutController@index')->name('logout.index');
 
 //reg
 Route::get('/Admin/reg', 'AdminController@reg')->name('admin.reg');
-Route::post('/Admin/reg', 'AdminController@reg');
+Route::post('/Admin/reg', 'AdminController@register');
 
 //admin
 
 Route::get('/Admin', 'AdminController@index')->name('admin.index');
+Route::get('/Admin/details/{id}', 'AdminController@details')->name('admin.details');
 
 Route::get('/Admin/create', 'AdminController@create')->name('admin.create');
 Route::post('/Admin/create', 'AdminController@store');

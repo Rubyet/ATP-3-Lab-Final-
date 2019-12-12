@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Employee list</title>
+	<title>Member list</title>
 </head>
 <body>
-	<h1>emloyee List</h1>
+	<h1>Member List</h1>
 
 	<a href="{{route('admin.index')}}">Back</a> |
 	<a href="{{route('logout.index')}}">logout</a>
@@ -14,21 +14,21 @@
 		<tr>
 			<td>ID</td>
 			<td>Name</td>
-			<td>Contact</td>
+			<td>Email</td>
 			<td>Type</td>
 			<td>ACTION</td>
 		</tr>
 
 
-	@foreach($employee as $Emloyee)
+	@foreach($User as $user)
 		<tr>
-			<td>{{ $Emloyee->id }}</td>
-			<td>{{ $Emloyee->name }}</td>
-			<td>{{ $Emloyee->contact }}</td>
-			<td>{{ $Emloyee->type }}</td>
+			<td>{{ $user->id }}</td>
+			<td>{{ $user->username }}</td>
+			<td>{{ $user->email }}</td>
+			<td>{{ $user->type }}</td>
 			<td>
-				<a href="{{ route('admin.edit', $Emloyee->id)  }}"> EDIT </a> | 
-				<a href="{{ route('admin.delete', $Emloyee->id ) }}"> DELETE </a> | 
+				<a href="{{ route('admin.edit', $user->id)  }}"> EDIT </a> | 
+				<a href="{{ route('admin.delete', $user->id ) }}"> DELETE </a> | 
 			</td>
 		</tr>
 	@endforeach
