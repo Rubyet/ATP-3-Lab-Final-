@@ -21,7 +21,7 @@
 	@foreach($Blog as $blog)
 	<table border="1" align="center" >
 		<tr>
-			<td><h2>{{$User['username']->where($User['id']==$blog['uid'])}}</h2></td>
+			<td><h2>{{$User['$blog['id']])}}</h2></td>
 		</tr>
 		<tr>
 			<td><h4>{{$blog['post']}}</td>

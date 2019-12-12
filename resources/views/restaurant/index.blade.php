@@ -6,7 +6,8 @@
 <body>
 	<h1>Restaurant List</h1>
 
-	<a href="">Back</a> |
+	<a href="">Back</a> | |
+	<a href="{{route('restaurant.create')}}">Add New Restaurant</a>| |
 	<a href="{{route('logout.index')}}">logout</a>
 
 <br><br>
