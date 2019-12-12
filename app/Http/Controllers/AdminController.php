@@ -31,6 +31,11 @@ class AdminController extends Controller
         return view('admin.add');
     }
 
+    public function reg()
+    {
+        //return view('admin.reg');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
