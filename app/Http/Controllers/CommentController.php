@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\admin;
-use App\blog;
 use App\comment;
 use Illuminate\Http\Request;
 
-class BlogController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +14,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $Blog = \App\blog::all();
-        $Comment = \App\comment::all();
-        $User = \App\admin::all();
-        echo($user);
-        //return view('blog.index')->with('Blog', $Blog)->with('Comment', $Comment)->with('User', $User);
+        //
     }
 
     /**
@@ -47,21 +41,21 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\blog  $blog
+     * @param  \App\comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function show(blog $blog)
+    public function show(comment $comment)
     {
-        
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\blog  $blog
+     * @param  \App\comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function edit(blog $blog)
+    public function edit(comment $comment)
     {
         //
     }
@@ -70,10 +64,10 @@ class BlogController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\blog  $blog
+     * @param  \App\comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, blog $blog)
+    public function update(Request $request, comment $comment)
     {
         //
     }
@@ -81,10 +75,10 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\blog  $blog
+     * @param  \App\comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(blog $blog)
+    public function destroy(comment $comment)
     {
         //
     }

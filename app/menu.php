@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class blog extends Model
+class menu extends Model
 {
-    protected $table = "blog";
+    protected $table = "menu";
     
     protected $primaryKey = "id";
     public $timestamps = false;

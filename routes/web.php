@@ -47,4 +47,10 @@ Route::get('/Admin/delete/{id}', 'AdminController@destroy')->name('admin.delete'
 
 Route::get('/blog', 'BlogController@index')->name('blog.index');
 
+
+//restaurent related
+
 Route::get('/restaurant', 'RestaurantController@index')->name('restaurant.index');
+Route::get('/menu/{id}', 'MenuController@index')->name('menu.index');
+Route::get('/menu/create/{id}', 'MenuController@create')->name('menu.create');
+Route::post('/menu/create/{id}', 'MenuController@store');

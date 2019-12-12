@@ -2,25 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\admin;
-use App\blog;
-use App\comment;
+use App\menu;
 use Illuminate\Http\Request;
 
-class BlogController extends Controller
+class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        $Blog = \App\blog::all();
-        $Comment = \App\comment::all();
-        $User = \App\admin::all();
-        echo($user);
-        //return view('blog.index')->with('Blog', $Blog)->with('Comment', $Comment)->with('User', $User);
+        $Menu = \App\menu::where('rid',$id)->get();
+        return view('restaurant.menu')->with('Menu', $Menu)->with('rid', $id);
     }
 
     /**
@@ -28,9 +23,9 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        return view('restaurant.menuAdd')->with('rid', $id);
     }
 
     /**
@@ -41,27 +36,37 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $menu = new menu();
+        $menu->name=$request->name;
+        $menu->price =$request->price;
+        $menu->rid =$request->rid;
+
+
+        if($menu->save()){
+            return redirect()->route('restaurant.index');
+        }else{
+            return redirect()->route('menu.create');
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\blog  $blog
+     * @param  \App\menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function show(blog $blog)
+    public function show(menu $menu)
     {
-        
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\blog  $blog
+     * @param  \App\menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function edit(blog $blog)
+    public function edit(menu $menu)
     {
         //
     }
@@ -70,10 +75,10 @@ class BlogController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\blog  $blog
+     * @param  \App\menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, blog $blog)
+    public function update(Request $request, menu $menu)
     {
         //
     }
@@ -81,10 +86,10 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\blog  $blog
+     * @param  \App\menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function destroy(blog $blog)
+    public function destroy(menu $menu)
     {
         //
     }
